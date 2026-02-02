@@ -383,4 +383,6 @@ app.delete("/api/moderators/:id", authMiddleware, async (c) => {
   return c.json({ success: true });
 });
 
+app.get("*", (c) => serveStatic(c, "./public/index.html"));
+
 export default app;
