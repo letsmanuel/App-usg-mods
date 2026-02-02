@@ -384,6 +384,9 @@ app.delete("/api/moderators/:id", authMiddleware, async (c) => {
   return c.json({ success: true });
 });
 
-app.get("*", (c) => serveStatic(c, "./public/index.html"));
+app.get('/assets/*', serveStatic({ root: './src/react-app/dist' }));
+
+// Catch-all route for SPA (React)
+app.get('*', serveStatic({ root: './src/react-app/dist', path: 'index.html' }));
 
 export default app;
