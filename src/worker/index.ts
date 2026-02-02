@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { serveStatic } from 'hono/cloudflare-workers';
 import { getCookie, setCookie } from "hono/cookie";
 import type { Session } from "@/shared/types";
 
